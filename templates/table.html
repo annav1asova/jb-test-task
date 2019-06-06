@@ -1,0 +1,14 @@
+<!doctype html>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class=page>
+  <h3>Most popular words (and their frequency) of each decade for your query</h3>
+      {{ table|safe }}
+      <h4>Number of articles found: {{num_articles}}</h4>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-64
+
+feedparser=5.2.1=py36_1
+flask=1.0.3=py36_0
+flask-cors=3.0.7=py36_0
+jinja2=2.10.1=py36_0
+nltk=3.4.1=py36_0
+pandas=0.24.2=py36h0a44026_0
+urllib3=1.24.2=py36_0
+wtforms=2.2.1=py36_0
