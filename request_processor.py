@@ -8,8 +8,10 @@ nltk.download('punkt')
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
 
 stop_words = set(stopwords.words('english'))
+lemmatizer = WordNetLemmatizer()
 decade_period = 10
 
 
@@ -49,10 +51,14 @@ def add_title(decade_start, title, decades):
         decades[decade_start] = Counter()
 
     word_tokens = word_tokenize(title.lower())
-    filtered_words = [w for w in word_tokens if (w.isalpha()) and (not w in stop_words)]
+    filtered_words = [normalize(w) for w in word_tokens if (w.isalpha()) and (not w in stop_words)]
     decades[decade_start].update(filtered_words)
 
 
 def add_extra_stopwords():
     roman_numerals = ['i', 'ii', 'iii', 'iv', 'v', 'x'] # common roman numerals
     stop_words.update(roman_numerals)
+
+
+def normalize(word):
+        return lemmatizer.lemmatize(word)
