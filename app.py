@@ -4,9 +4,15 @@ from request_processor import prepare_table
 
 app = Flask(__name__)
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
+
+
 @app.before_request
 def before_request():
     g.search_form = SearchForm()
+
 
 @app.route('/')
 def explore():
@@ -31,6 +37,7 @@ def search():
     return render_template('table.html',
                            table=result_table.to_html(classes=["table","table-bordered", "table-striped"]),
                            num_articles=num_articles)
+
 
 if __name__ == "__main__":
     app.secret_key = 'very secret key'

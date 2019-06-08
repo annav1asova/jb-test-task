@@ -19,7 +19,9 @@ def prepare_table(search_request):
     value at this data frame for row x and column y: word (z)
     where "word" is the x-th most frequently used word at the article names of period y.
     z is this word frequency
+    also return number of found articles
     """
+    add_extra_stopwords()
     feed = get_feed(search_request)
     decades = get_decades_words_info(feed)
     decades_df = convert_to_data_frame(decades)
@@ -50,3 +52,7 @@ def add_title(decade_start, title, decades):
     filtered_words = [w for w in word_tokens if (w.isalpha()) and (not w in stop_words)]
     decades[decade_start].update(filtered_words)
 
+
+def add_extra_stopwords():
+    roman_numerals = ['i', 'ii', 'iii', 'iv', 'v', 'x'] # common roman numerals
+    stop_words.update(roman_numerals)
