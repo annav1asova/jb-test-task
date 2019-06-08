@@ -28,7 +28,8 @@ def search():
     if result_table.empty:
         return render_template('empty_table.html')
 
-    return render_template('table.html', table=result_table.to_html(classes=["table","table-bordered", "table-striped"]),
+    return render_template('table.html',
+                           table=result_table.to_html(classes=["table","table-bordered", "table-striped"]),
                            num_articles=num_articles)
 
 if __name__ == "__main__":

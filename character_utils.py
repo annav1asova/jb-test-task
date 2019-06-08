@@ -1,9 +1,9 @@
 def is_alpha(sym):
-    return sym >= 'a' and sym <= 'z'
+    return 'a' <= sym <= 'z'
 
 
 def is_digit(sym):
-    return sym >= '0' and sym <= '9'
+    return '0' <= sym <= '9'
 
 
 def is_allowed_special(sym):
