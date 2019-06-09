@@ -41,5 +41,5 @@ def search():
 
 if __name__ == "__main__":
     app.secret_key = 'very secret key'
-    app.run(debug=True)
+    app.run()
 
