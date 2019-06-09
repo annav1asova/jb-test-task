@@ -24,7 +24,7 @@ def prepare_query(search_request):
 
 def get_feed(search_request):
     query = prepare_query(search_request)
-    response = urllib.request.urlopen(base_url + query)
-    # response = requests.get(base_url + query).read()
+    response = urllib.request.urlopen(base_url + query).read()
+    # response = requests.get(base_url + query)
     feed = feedparser.parse(response)
     return feed
